@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/bootstrap-5.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Simple toDo List</h2>
+        <h6 class="text-center">(MISSION 4 RIZKI RAMADHAN - 15099)</h6>
+        <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#modalAddTask">
+            Add New To Do List
+        </button>
+        <table class="table my-20">
+            <thead>
+              <tr>
+                <th scope="col">Pekerjaan</th>
+                <th scope="col">Batas Waktu</th>
+                <th scope="col">Status Pekerjaan</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="bodyTable">
+              
+            </tbody>
+          </table>
+
+          <!-- Modal -->
+          <div class="modal fade" id="modalAddTask" tabindex="-1" aria-labelledby="modalAddTaskLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modalAddTaskLabel">Add TASK</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                      <div class="modal-body">
+                          <div class="mb-3 d-none">
+                              <label for="idInput" class="form-label"></label>
+                              <input type="text" class="form-control" id="idInput">
+                          </div>
+                          <div class="mb-3">
+                              <label for="taskInput" class="form-label">Nama Pekerjaan</label>
+                              <input type="text" class="form-control" id="taskInput" aria-describedby="taskInput">
+                          </div>
+                          <div class="mb-3">
+                              <label for="dateInput" class="form-label">Batas Waktu Pekerjaan</label>
+                              <input type="date" class="form-control" id="dateInput">
+                          </div>
+                      </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" onclick="addTask()" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+
+          <div class="modal d-none z-10 mt-20" tabindex="-1"  id="modalUpdate">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Update Task</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModaUpdate()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <input type="text" class="form-control d-none" id="idInput" aria-describedby="idInput" value="">
+                        <div class="mb-3">
+                            <label for="taskInputUpdate" class="form-label">Nama Pekerjaan</label>
+                            <input type="text" class="form-control" id="taskInputUpdate" aria-describedby="taskInputUpdate" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dateInputUpdate" class="form-label">Batas Waktu Pekerjaan</label>
+                            <input type="date" class="form-control" id="dateInputUpdate"  value="">
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" class="form-check-input" id="checkStatus">
+                            <label class="form-check-label" for="checkStatus">Pekerjaan Selesai</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="closeModaUpdate()">Close</button>
+                  <button type="button" class="btn btn-primary" onclick="updateTask()">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="modalUpdate"></div>
+            
+    </div>
+    
+    
+<script src="./custome.js"></script>
+<script src="./src/bootstrap-5.3.5-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
